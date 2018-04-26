@@ -1,0 +1,50 @@
+<ion-content class="login-content" padding >
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+        <!-- <ion-icon name="ios-lock-outline"></ion-icon> -->
+      <!--<img src="https://images-na.ssl-images-amazon.com/images/I/41PLTAE3T0L._SL500_AC_SS350_.jpg"/>
+      -->
+      <!-- <img src="assets/imgs/theFlash.png"/> -->
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+      <ion-row class="logo">
+          <ion-col></ion-col>
+          
+              <ion-icon name="ios-lock-outline"></ion-icon>
+           
+          
+          <ion-col></ion-col>
+        </ion-row>
+    <!--<form (ngSubmit)="login()" #registerForm="ngForm">-->
+    <form (ngSubmit)="submit()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+            <ion-item>
+              <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="data.username" required></ion-input>
+            </ion-item>
+			
+			<ion-item>
+              <ion-input type="password" placeholder="Password" name="pwd" [(ngModel)]="data.pwd" required></ion-input>
+            </ion-item>
+            
+          
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Login</button>
+          <!-- <button ion-button class="register-btn" block type="button" clear (click)="createAccount()">Create New Account</button> -->
+        </ion-col>
+      </ion-row>
+      <b class="register-btn">{{data.response}}</b>
+    </form>
+  </div>
+</ion-content>
