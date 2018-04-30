@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { MutationPage } from '../mutation/mutation';
 
 /**
  * Generated class for the AssetInfoPage page.
@@ -43,8 +44,11 @@ export class AssetInfoPage {
 
   itemSelected(item: string) {
     console.log("Selected Item", item);
-    //alert(item);
-    //this.navCtrl.push(AssetInfoPage);
+   
+}
+
+Mutation(){
+   this.navCtrl.push(MutationPage);
 }
 
 }
