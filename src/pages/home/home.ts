@@ -5,6 +5,8 @@ import { LoginPage } from '../login/login';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { AssetListPage } from '../asset-list/asset-list';
+import { ClaimListPage } from '../claim-list/claim-list';
+import { AdvanceListPage } from '../advance-list/advance-list';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -53,11 +55,17 @@ public chartHovered(e:any):void {
     // ]
   }
 
+  btnClaim(){
+    this.navCtrl.push(ClaimListPage);
+  }
+
+  btnAdvance(){
+    this.navCtrl.push(AdvanceListPage);
+  }
+
   loadData(){
     let data : Observable<any>;
-    //data = this.http.get('https://jsonplaceholder.typicode.com/posts');
-    data = this.http.get('http://dev.aio.co.id/ionic/get_assets.php');
-    //data = this.http.get('http://192.168.101.52/ionic/get_assets.php');
+    data = this.http.get('http://dev.aio.co.id/ionic/get_assets.php?NIK='+this.username);
     data.subscribe(result =>{
       this.items =  result;
     })

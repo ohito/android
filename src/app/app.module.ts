@@ -17,6 +17,8 @@ import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { AssetListPage } from '../pages/asset-list/asset-list';
 import { AssetInfoPage } from '../pages/asset-info/asset-info';
+import { ClaimListPage } from '../pages/claim-list/claim-list';
+import { AdvanceListPage } from '../pages/advance-list/advance-list';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AssetInfoPage } from '../pages/asset-info/asset-info';
     TabsPage,
     LoginPage,
     AssetListPage,
-    AssetInfoPage
+    AssetInfoPage,
+    ClaimListPage,
+    AdvanceListPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { AssetInfoPage } from '../pages/asset-info/asset-info';
     TabsPage,
     LoginPage,
     AssetListPage,
-    AssetInfoPage
+    AssetInfoPage,
+    ClaimListPage,
+    AdvanceListPage
   ],
   providers: [
     StatusBar,
