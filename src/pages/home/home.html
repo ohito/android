@@ -28,11 +28,13 @@
 
               <button ion-button icon-start  style="width: 48%;" (click)="btnClaim()" >
                   <ion-icon name='ios-pricetags-outline'></ion-icon>
-                  ICLAIM
+                  ICLAIM 
+                  <ion-badge color="secondary" item-end>{{claimCount}}</ion-badge>
                 </button>
                 <button ion-button icon-start  style="width: 48%;" (click)="btnAdvance()">
                     <ion-icon name='ios-filing-outline'></ion-icon>
                     ADV 
+                    <ion-badge color="secondary" item-end>{{advCount}}</ion-badge>
                   </button>
        
       <!-- </ion-card-content> -->

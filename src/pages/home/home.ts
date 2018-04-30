@@ -15,7 +15,54 @@ export class HomePage {
   // username = '';
   // email = '';
   username: string;
+  advCount:string;
+  claimCount :string;
   items:any;
+  itemsClaim:any;
+  itemsAdv:any;
+
+  constructor(public navCtrl: NavController , private auth: AuthServiceProvider,
+    public alertCtrl: AlertController,public app:App,public http:HttpClient) {
+    this.navCtrl = navCtrl;
+    this.username = window.localStorage.getItem('username');
+    this.loadData();
+    this.loadClaimCount();
+    this.loadAdvCount();
+  }
+
+  loadClaimCount(){
+    let data : Observable<any>;
+    data = this.http.get('http://dev.aio.co.id/ionic/getIclaim.php?NIK='+this.username);
+    data.subscribe(result =>{
+      this.itemsClaim =  result;
+      this.claimCount = this.itemsClaim[0].iclaim_progress;
+    })
+  }
+
+  loadAdvCount(){
+    let data : Observable<any>;
+    data = this.http.get('http://dev.aio.co.id/ionic/getAdvance.php?NIK='+this.username);
+    data.subscribe(result =>{
+      this.itemsAdv =  result;
+      this.advCount = this.itemsAdv[0].adv_settlement;
+    })
+  }
+
+  btnClaim(){
+    this.navCtrl.push(ClaimListPage);
+  }
+
+  btnAdvance(){
+    this.navCtrl.push(AdvanceListPage);
+  }
+
+  loadData(){
+    let data : Observable<any>;
+    data = this.http.get('http://dev.aio.co.id/ionic/get_assets.php?NIK='+this.username);
+    data.subscribe(result =>{
+      this.items =  result;
+    })
+  }
 
   itemSelected(item: string) {
     console.log("Selected Item", item);
@@ -37,39 +84,6 @@ public chartClicked(e:any):void {
 public chartHovered(e:any):void {
   console.log(e);
 }
-
-  constructor(public navCtrl: NavController , private auth: AuthServiceProvider,
-    public alertCtrl: AlertController,public app:App,public http:HttpClient) {
-    // let info = this.auth.getUserInfo();
-    // this.username = info['name'];
-    // this.email = info['email'];
-
-    this.navCtrl = navCtrl;
-    this.username = window.localStorage.getItem('username');
-    this.loadData();
-    // this.items = [
-    //   {title:'Jonn'},
-    //   {title:'Jonn'},
-    //   {title:'Jonn'},
-    //   {title:'Jonn'},
-    // ]
-  }
-
-  btnClaim(){
-    this.navCtrl.push(ClaimListPage);
-  }
-
-  btnAdvance(){
-    this.navCtrl.push(AdvanceListPage);
-  }
-
-  loadData(){
-    let data : Observable<any>;
-    data = this.http.get('http://dev.aio.co.id/ionic/get_assets.php?NIK='+this.username);
-    data.subscribe(result =>{
-      this.items =  result;
-    })
-  }
 
   logout(): void {
     let confirm = this.alertCtrl.create({
