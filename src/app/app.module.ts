@@ -14,6 +14,9 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { LoginPage } from '../pages/login/login';
 import { HttpModule} from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
+import { AssetListPage } from '../pages/asset-list/asset-list';
+import { AssetInfoPage } from '../pages/asset-info/asset-info';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,15 @@ import { ChartsModule } from 'ng2-charts';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    AssetListPage,
+    AssetInfoPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    HttpClientModule,
     ChartsModule
   ],
   bootstrap: [IonicApp],
@@ -37,7 +43,9 @@ import { ChartsModule } from 'ng2-charts';
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    AssetListPage,
+    AssetInfoPage
   ],
   providers: [
     StatusBar,

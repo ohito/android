@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, App } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
-
+import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
+import { AssetListPage } from '../asset-list/asset-list';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,16 +13,12 @@ export class HomePage {
   // username = '';
   // email = '';
   username: string;
-  
-
-  items = [
-    'Lenovo ThinkPad E460',
-    'Xiaomi Redmi Note 3 Pro',
-    'LG Monitor'
-  ];
+  items:any;
 
   itemSelected(item: string) {
     console.log("Selected Item", item);
+    //alert(item);
+    this.navCtrl.push(AssetListPage);
 }
 
 
@@ -39,13 +37,30 @@ public chartHovered(e:any):void {
 }
 
   constructor(public navCtrl: NavController , private auth: AuthServiceProvider,
-    public alertCtrl: AlertController,public app:App) {
+    public alertCtrl: AlertController,public app:App,public http:HttpClient) {
     // let info = this.auth.getUserInfo();
     // this.username = info['name'];
     // this.email = info['email'];
 
     this.navCtrl = navCtrl;
     this.username = window.localStorage.getItem('username');
+    this.loadData();
+    // this.items = [
+    //   {title:'Jonn'},
+    //   {title:'Jonn'},
+    //   {title:'Jonn'},
+    //   {title:'Jonn'},
+    // ]
+  }
+
+  loadData(){
+    let data : Observable<any>;
+    //data = this.http.get('https://jsonplaceholder.typicode.com/posts');
+    data = this.http.get('http://dev.aio.co.id/ionic/get_assets.php');
+    //data = this.http.get('http://192.168.101.52/ionic/get_assets.php');
+    data.subscribe(result =>{
+      this.items =  result;
+    })
   }
 
   logout(): void {

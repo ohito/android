@@ -1,0 +1,141 @@
+<!--
+  Generated template for the AssetInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AssetInfo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-row>
+      <ion-col>
+        <div *ngFor="let item of items" (click)="itemSelected(item.id)">
+          <ion-card>
+              <ion-row>
+                  <ion-col>
+                    <button ion-button icon-left clear small>
+                      <ion-icon name="ios-calendar-outline"></ion-icon>
+                      <div> {{item.last_updated}} </div>
+                    </button>
+                  </ion-col>
+                </ion-row>
+  
+            <ion-item>
+              <ion-avatar item-start>
+                 <img src="{{item.url_photo || 'assets/imgs/logo.png' }} "  >
+              </ion-avatar>
+              <ion-card-content>
+                  <p>{{item.description}}
+                  </p>
+                </ion-card-content>
+            </ion-item>
+  
+            <ion-list>
+                <ion-item>
+                    <ion-label stacked>Inventory Number</ion-label>
+                    
+                  <p  item-end>{{item.inventory_number}}</p>
+                </ion-item>
+              
+
+                <ion-item>
+                    <ion-label stacked>Asset Number</ion-label>
+                    
+                  <p  item-end>{{item.company_code}}{{item.asset_number}}{{item.asset_sub_number}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Barcode Number</ion-label>
+                    
+                  <p  item-end>{{item.barcode_number}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Acquisition Date</ion-label>
+                    
+                  <p  item-end>{{item.acquisition_date}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Asset Class</ion-label>
+                    
+                  <p  item-end>{{item.asset_class_desc}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Serial Number</ion-label>
+                    
+                  <p  item-end>{{item.serial_number}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Plant</ion-label>
+                    
+                  <p  item-end>{{item.plant_desc}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Location</ion-label>
+                    
+                  <p  item-end>{{item.location_desc}}</p>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label stacked>Cost Center</ion-label>
+                    
+                  <p  item-end>{{item.cost_center_desc}}</p>
+                </ion-item>
+
+                <ion-item>
+                   
+                </ion-item>
+
+              </ion-list>
+  
+            
+  
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+
+   
+            <!-- <button ion-button icon-left>
+                <ion-icon name="home"></ion-icon>
+                Left Icon
+              </button> -->
+
+              
+              
+                <ion-fab right bottom>
+                  <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+                  <ion-fab-list side="left">
+                      <button ion-button  icon-left>
+                          <ion-icon name="ios-trash-outline"></ion-icon>
+                          Return
+                        </button>
+
+                    <button ion-button  icon-left>
+                        <ion-icon name="md-create"></ion-icon>
+                        Mutation
+                      </button>
+                      
+                  </ion-fab-list>
+                </ion-fab>
+              
+                
+              
+                
+              
+                       
+
+    
+    
+  </ion-content>

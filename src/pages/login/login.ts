@@ -82,7 +82,7 @@ dismissLoading(){
     if (vStatus==="Success"){
       
       window.localStorage.setItem('username', this.data.username);
-      window.localStorage.setItem('password', this.data.pwd);
+      //window.localStorage.setItem('password', this.data.pwd);
 
       this.loading.dismiss();
       this.doAlert(vStatus);

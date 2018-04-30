@@ -1,0 +1,49 @@
+<!--
+  Generated template for the AssetListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AssetList</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-row>
+    <ion-col>
+      <div *ngFor="let item of items" (click)="itemSelected(item.id)">
+        <ion-card>
+            <ion-row>
+                <ion-col>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="ios-calendar-outline"></ion-icon>
+                    <div> {{item.last_updated}} </div>
+                  </button>
+                </ion-col>
+              </ion-row>
+
+          <ion-item>
+            <ion-avatar item-start>
+               <img src="{{item.url_photo || 'assets/imgs/logo.png' }} "  >
+            </ion-avatar>
+            <h2>{{item.company_code}}{{item.asset_number}}{{item.asset_sub_number}}</h2>
+            <p>{{item.barcode_number}}</p>
+          </ion-item>
+
+          <ion-card-content>
+            <p>{{item.description}}
+            </p>
+          </ion-card-content>
+
+          
+
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
