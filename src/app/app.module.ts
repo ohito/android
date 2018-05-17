@@ -21,6 +21,10 @@ import { AssetInfoPage } from '../pages/asset-info/asset-info';
 import { ClaimListPage } from '../pages/claim-list/claim-list';
 import { AdvanceListPage } from '../pages/advance-list/advance-list';
 import { MutationPage } from '../pages/mutation/mutation';
+import { PlantRestApiProvider } from '../providers/plant-rest-api/plant-rest-api';
+import { LocationRestApiProvider } from '../providers/location-rest-api/location-rest-api';
+import { EmployeeRestApiProvider } from '../providers/employee-rest-api/employee-rest-api';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +67,10 @@ import { MutationPage } from '../pages/mutation/mutation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    PlantRestApiProvider,
+    LocationRestApiProvider,
+    EmployeeRestApiProvider
   ]
 })
 export class AppModule {}

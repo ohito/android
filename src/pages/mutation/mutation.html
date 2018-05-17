@@ -7,25 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Mutations</ion-title>
+    <ion-title>Mutation</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>test
-    <datalist id="colors">
-        <option value="Green">
-        <option value="Red">
-        <option value="Blue">
-        <option value="Yellow">
-        <option value="Orange">
-        <option value="Purple">
-        <option value="Black">
-        <option value="White">
-        <option value="Gray">
-        <option value="Plaid">
-    </datalist>
+<ion-content padding>
+    <ion-item>
+        <ion-label stacked>Plant</ion-label>
+        
+      <!-- <p  item-end (click)="openModal()" >set</p> -->
+      <button item-end ion-button round  outline type="button" (click)="openModal()">set</button>
+      <ion-input disabled="true" type="text" value="{{plant}}" placeholder="plant"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Location</ion-label>
+      <button item-end ion-button round  outline type="button" (click)="openModalLocation()">set</button>
+      <ion-input disabled="true" type="text" value="{{location}}" placeholder="location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Recipient</ion-label>
+      <button item-end ion-button round  outline type="button" (click)="openModalRecipient()">set</button>
+      <ion-input disabled="true" type="text" value="{{recipient}}" placeholder="recipient"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label stacked>Condition</ion-label>
+      <ion-input type="text"[(ngModel)]="condition"  placeholder="condition"></ion-input>
+    </ion-item>
+
     
+    <button ion-button full round  (click)="submit()">Submit</button>
+    <b class="register-btn">{{data.response}}</b>
     
 </ion-content>

@@ -20,6 +20,7 @@ export class HomePage {
   items:any;
   itemsClaim:any;
   itemsAdv:any;
+  hide:any;
 
   constructor(public navCtrl: NavController , private auth: AuthServiceProvider,
     public alertCtrl: AlertController,public app:App,public http:HttpClient) {
@@ -45,7 +46,14 @@ export class HomePage {
     data.subscribe(result =>{
       this.itemsAdv =  result;
       this.advCount = this.itemsAdv[0].adv_settlement;
+      let cAdv = parseInt(this.advCount);
+      if(cAdv>0){
+        this.hide = false;
+      }else{
+        this.hide = true;
+      }
     })
+    
   }
 
   btnClaim(){

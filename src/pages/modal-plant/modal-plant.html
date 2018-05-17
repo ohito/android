@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ModalPlantPage</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+ 
+    <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+    <button ion-button type="button" (click)="sort()">Sort</button>
+
+  <ion-list radio-group  no-lines>
+    <ion-item *ngFor="let item of plants | searchPlant : terms | sortPlant: {property: column, order: order} ">
+      <ion-label>{{ item.plant_name }} - {{ item.plant_code }}</ion-label>
+      <ion-radio value="{{ item.plant_code }}" (click)="itemSelected(item.plant_code,item.plant_name)"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
